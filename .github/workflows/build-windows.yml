@@ -1,0 +1,30 @@
+name: Build Windows ZIP
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - work
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Build exe + zip
+        shell: pwsh
+        run: ./scripts/build_windows_zip.ps1
+
+      - name: Upload ZIP artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: phonixcast-windows
+          path: dist/PhonixCast-windows.zip

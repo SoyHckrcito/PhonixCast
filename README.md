@@ -58,3 +58,25 @@ python3 app/main.py start \
 2. Modo “one-click” para usuarios no técnicos.
 3. Diagnóstico en tiempo real (latencia estimada, bitrate efectivo, pérdida de frames).
 4. Instalador para Windows/macOS/Linux.
+
+## Descargar `.exe` en ZIP (Windows)
+
+Si quieres bajar un `.exe` directamente (empaquetado en `.zip` con archivos auxiliares), usa el workflow de GitHub Actions incluido:
+
+1. Ve a **Actions** → **Build Windows ZIP**.
+2. Ejecuta **Run workflow** en la rama deseada.
+3. Descarga el artifact `phonixcast-windows` (contiene `PhonixCast-windows.zip`).
+
+El ZIP incluye:
+
+- `PhonixCast.exe`
+- `README.md`
+- `RUN-WINDOWS.txt`
+
+> Nota: para funcionar en Windows, el equipo necesita tener `adb` y `scrcpy` instalados y en `PATH`.
+
+También puedes construirlo localmente en Windows:
+
+```powershell
+./scripts/build_windows_zip.ps1
+```
